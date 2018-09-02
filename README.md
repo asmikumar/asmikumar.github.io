@@ -1,6 +1,6 @@
 ## Welcome to my website!
 
-<a href="https://www.youtube.com/user/AgniAsmi</a> to go to my YouTube channel.
+Click on "https://www.youtube.com/user/AgniAsmi" to go to my YouTube channel.
 
 ### Markdown
 
