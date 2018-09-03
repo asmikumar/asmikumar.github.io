@@ -5,7 +5,7 @@ I have been invovled in the STEM (particularly mathematics) areas ever since I c
 
 ## Music
 Click [here](https://www.youtube.com/user/AgniAsmi) to go to my YouTube channel.
-I have been playing the piano for over eight years and I love it! Some of the pieces you will find are: 
+I have been playing the piano for over eight years and I love it! Some of the pieces you will find that I have played at Spivey Hall, Clayton State University, GA are: 
 - [Italian Concerto BWV 971](https://www.youtube.com/watch?v=cCm9cuC6L44) (2018)
 - [Mozart's Sonata No. 11 in A Major](https://www.youtube.com/watch?v=2_EveVgN3Ko) (2017)
 - [Mozart's Sonata No. 16 in C Major](https://www.youtube.com/watch?v=bMUg5aIvpaQ) (2016)
