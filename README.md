@@ -1,5 +1,7 @@
 # Welcome to my website!
 
+My name is Asmi Kumar and I am currently a freshman in high school. 
+
 ## Achievements and Awards
 I have been invovled in the STEM (particularly mathematics) areas ever since I can remember.
 
