@@ -6,7 +6,8 @@ My name is Asmi Kumar and I am currently a freshman in high school from Atlanta,
 I have been invovled in the STEM (particularly mathematics) areas ever since I can remember.
 ## Math
 - MATHCOUNTS Nationals
-- ARML
+- Georgia ARML
+- Raytheon MathMovesU
 - Cheetah Cup
 - Mini-Mathletes 
 - NSF 
@@ -15,16 +16,17 @@ I have been invovled in the STEM (particularly mathematics) areas ever since I c
   
 ## Science/Technology
 - Science Fair
+  - Broadcom MASTERS National Competition
 - Fulton County Student Media Festival, Certifiate of Superior Achievement (2015)
 - Georgia Student Media Festival, Outstanding Media Production (2015)
 - Georgia Student Media Festivel, Perfect Score & Best in Show (2015)
-- Georgia Elementary Science Olympiad, 1st place (2015)
+- Georgia Elementary State Science Olympiad, 1st place (2015)
 
 ## Others
 - National Elementary Honors Society
 - Kaplan Tutoring Spelling Bee, K-4 Regional Champion (2010)
-- 7th Grade Talent Search at Duke Tip, Grand Recognitino Awardee (2017)
-- AWM 
+- 7th Grade Talent Search at Duke Tip, Grand Recognition Awardee (2017)
+- AWM Essay Champion
 
 ## Music
 Click [here](https://www.youtube.com/user/AgniAsmi) to go to my YouTube channel.
