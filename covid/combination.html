@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Economic Analysis COVID-19</title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Page level plugin CSS-->
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- <script type="text/javascript" src="./map_js.js"></script>
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/data.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
+    <script src="https://code.highcharts.com/mapdata/countries/us/us-all.js"></script> -->
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@0.7.7"></script> -->
+
+    <div id="container"></div>
+
+  </head>
+
+  <body id="page-top">
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+      <a class="navbar-brand mr-1" href="index.html">Economic Impacts of COVID-19</a>
+
+      	  <a class="nav-link" href="unemployment.html" style="color: darkgray">
+            <span>Unemployment Statistics and Visualizations</span>
+          </a>
+          <a class="nav-link" href="wage_gap.html" style="color: darkgray">
+            <span>The Wage Gap</span>
+          </a>
+          <a class="nav-link" href="combination.html" style="color: white">
+            <span>Combining Two Economic Ideas</span>
+          </a>
+          <a class="nav-link" href="data_sources.html" style="color: darkgray">
+            <span>Data Sources</span>
+          </a>
+    </nav>
+
+    <div id="wrapper">
+
+      <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+          <div id="encapsule">
+
+          <h2>Combining Two Economic Ideas</h2>
+          Unemployment and the wage gap are closely related, as one may expedite the process of the other. For example, if a certain industry, race, or gender faces a higher unemployment rate increase due to the pandemic, the wage gap in that industry is likely to increase as a result. On the scatter plot to the right, each colored dot corresponds to its respective color in the table, where it represents the relationship between percent increase in unemployment (shown on a <a href='unemployment.html' style='color: blue'><u>previous page</u></a>) and average hourly wage of the industry in June 2020.
+
+          <p></p>
+
+          <i>Note: when retrieving average hourly wages, data for nonsupervisory employees was taken to avoid skews due to outliers.</i>
+
+          <p></p>
+
+          <!-- DataTables Example -->
+          <div class='row'>
+
+            <div class='col-lg-7'>
+	            <div class="card mb-3">
+	              <div class="card-header">
+	                <i class="fas fa-table"></i>
+	                Employment Breakdown by Industry, Gender, and Race</div>
+	              <div class="card-body">
+	                <div class="table-responsive">
+	                  <table class="table table-bordered" id="industry_race" cellspacing="0">
+	                    <thead>
+	                      <tr>
+	                        <th>Industry</th>
+                          	<th>Average Hourly Wage (June 2020)</th>
+	                      </tr>
+	                    </thead>
+	                    <tbody>
+                        <tr style='background-color: #c3e6cb'>
+                          <td>Construction</td>
+                          <td>$29.35</td>
+                        </tr>
+                        <tr style='background-color: #f5c6cb'>
+                          <td>Education and Health Services</td>
+                          <td>$25.28</td>
+                        </tr>
+	                    <tr style='background-color: #c3e6cb'>
+                          <td>Financial Activities</td>
+                          <td>$29.01</td>
+                        </tr>
+                        <tr>
+                          <td>Information</td>
+                          <td>$35.44</td>
+                        </tr>
+                        <tr style='background-color: #f5c6cb'>
+                          <td>Leisure and Hospitality</td>
+                          <td>$14.55</td>
+                        </tr>
+                        <tr>
+                          <td>Manufacturing</td>
+                          <td>$22.61</td>
+                        </tr>
+                        <tr style='background-color: #c3e6cb'>
+                          <td>Professional and Business Services</td>
+                          <td>$29.32</td>
+                        </tr>
+                        <tr style='background-color: #f5c6cb'>
+                          <td>Retail Trade</td>
+                          <td>$18.06</td>
+                        </tr>
+	                    </tbody>
+	                  </table>
+	                </div>
+	              </div>
+	            </div>
+            </div>
+
+            <div class="col-lg-5">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <i class="fas fa-chart-area"></i>
+                  Unemployment Increase (%) vs. Average Hourly Wage ($)</div>
+                <div class="card-body d-flex flex-column flex-grow" style='height: 501.5px'>
+                  <canvas id="industry_unemployment_wage"></canvas>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          It's very interesting to note that the scatter plot above seems to display a downward trend. As percent increase in unemployment rises, average hourly industry page drops. There is definitely correlation between the two factors. <b>In other words, industries with greater unemployment increases are the same industries with lower pay; the lower end of wages appears to be disproportionally impacted.</b>
+
+          <p></p>
+
+          With this hypothesis, we can plot unemployment rates by gender and race over the last few years to understand how much COVID-19 has affected them.
+
+          <p></p>
+
+          <div class="card mb-3">
+                <div class="card-header">
+                  <i class="fas fa-chart-line"></i>
+                  Unemployment Quarterly Trends By Race, Gender (%)</div>
+                  <div class="card-body" style='height:500px'>
+                    <canvas id="unemployment_quarterly"></canvas>
+                  </div>
+              </div>
+
+          Plotting unemployment rates is the first step, but we must conduct a percent increase test to determine which group truly faced the greatest unemployment increases. The bar graph below depicts these calculations for each race and gender.
+
+          <p></p>
+
+          <div class="card mb-3">
+                <div class="card-header">
+                  <i class="fas fa-chart-pie"></i>
+                  Percent Increases In Unemployment from Q4/2019 to Q2/2020 (%)</div>
+                <div class="card-body" style='height:400px'>
+                  <canvas id="unemployment_increases_quarterly"></canvas>
+                </div>
+              </div>
+
+          Unemployment rates of men and women have been extremely similar (and even overlap with one another) throughout the last several years. <b>However, as supported in the bar graph, women faced a higher unemployment increase than their counterparts during this time.</b> This was very close to the increase rate of Hispanics, followed by whites, men, and finally, blacks.
+
+          <hr>
+
+          <h3>At-Risk Industries and Racial/Gender Demographics</h3>
+          Because we have isolated the most impacted industries, we can now make predictions about which races or genders are most at risk of unemployment by looking at the percent racial and gender makeups of these industries. These industries are highlighted in red in the table and scatter plot at the beginning of this page. The goal is to discover whether we find any patterns within these industries. 
+
+          <p></p>
+
+          <i>Note: in these pie graphs and all the ones that follow, the percentages may not add up to one hundred due to exclusion of all other races and ethnicities, multi-raciality, and rounding.</i>
+
+          <p></p>
+ 
+          <div class='row'>
+
+            <!-- Leisure and Hospitality Race -->
+            <div class="col-lg-4">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <i class="fas fa-chart-pie"></i>
+                  Leisure and Hospitality, Race (%)</div>
+                <div class="card-body" style='height:300px'>
+                  <canvas id="leisure_hospitality_race"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Retail Trade Race -->
+            <div class="col-lg-4">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <i class="fas fa-chart-pie"></i>
+                  Retail Trade, Race (%)</div>
+                <div class="card-body" style='height:300px'>
+                  <canvas id="retail_trade_race"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Education and Health Services Race -->
+            <div class="col-lg-4">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <i class="fas fa-chart-pie"></i>
+                  Education and Health Services, Race (%)</div>
+                <div class="card-body" style='height:300px'>
+                  <canvas id="education_health_race"></canvas>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class='row'>
+
+            <!-- Leisure and Hospitality Gender-->
+            <div class="col-lg-4">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <i class="fas fa-chart-pie"></i>
+                  Leisure and Unemployment, Gender (%)</div>
+                <div class="card-body" style='height:300px'>
+                  <canvas id="leisure_hospitality_gender"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Retail Trade Gender -->
+            <div class="col-lg-4">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <i class="fas fa-chart-pie"></i>
+                  Retail Trade, Gender (%)</div>
+                <div class="card-body" style='height:300px'>
+                  <canvas id="retail_trade_gender"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Education and Health Services Gender -->
+            <div class="col-lg-4">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <i class="fas fa-chart-pie"></i>
+                  Education and Health Services, Gender (%)</div>
+                <div class="card-body" style='height:300px'>
+                  <canvas id="education_health_gender"></canvas>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+         According to the U.S. Census Bureau, racial demographics are as follows: 76.3% white, 13.4% black, 18.5% Hispanic, 49.2% male, and 50.8% female. Like the above pie graphs, this does not account for other races and ethnicities or multi-raciality. We use these statistics in the following descriptions of the inferences that can be made from each corresponding pie graph.
+
+         <p></p>
+
+         <div class='row'>
+
+            <!-- Leisure and Hospitality Race -->
+            <div class="col-lg-4">
+              <h5>Leisure and Hospitality, Race</h5>
+              We see that this industry is 24% Hispanic whereas the overall U.S. population is 18.5%, which could raise concern if investigated further. Therefore, <b>Hispanics may have been impacted more in this industry to some extent.</b>
+            </div>
+
+            <!-- Retail Trade Race -->
+            <div class="col-lg-4">
+              <h5>Retail Trade, Race</h5>
+              Unfortunately, we cannot make any conclusions about economic impact on specific races, because their statistics are similar to their population demographics.
+            </div>
+
+            <!-- Education and Health Services Race -->
+            <div class="col-lg-4">
+              <h5>Education and Health Services, Race</h5>
+              Like in the previous industry, we cannot make any conclusions about economic impact on specific races, because their statistics are similar to their population demographics.
+            </div>
+
+          </div>
+
+          <p></p>
+
+          <div class='row'>
+
+            <!-- Leisure and Hospitality Gender -->
+            <div class="col-lg-4">
+              <h5>Leisure and Hospitality, Gender</h5>
+              Men and women hold similar shares in this industry, so we cannot make any conclusions about economic impacts based on gender.
+            </div>
+
+            <!-- Retail Trade Gender -->
+            <div class="col-lg-4">
+              <h5>Retail Trade, Gender</h5>
+              Like in the previous industry, men and women hold similar shares, so we cannot make any conclusions about economic impacts based on gender.
+            </div>
+
+            <!-- Education and Health Services Gender -->
+            <div class="col-lg-4">
+              <h5>Education and Health Services, Gender</h5>
+              This industry proves to be a major divide between occupations of men and women. Representation of women is 74.8%, while men make up only 25.2% – a quarter. However, overall population demographics put the ratio of males to females to almost exactly 1:1. Therefore, <b>women were impacted more in this industry to a significant extent.</b>
+            </div>
+
+          </div>
+
+          <hr>
+
+          <h3>The Converse</h3>
+          It is also important to look at the opposite case of the one just studied: the green industries (highlighted in the table above). We want to see whether there will be new trends or findings that support our previous ones by examining cases on the opposite end of the spectrum. For instance, will these higher-paid, less-impacted industries have a smaller portion of minorities? What does percent representation look like in industries that aren't suffering as badly from unemployment increases?
+
+          <p></p>
+ 
+          <div class='row'>
+
+            <!-- Financial Activites Race -->
+            <div class="col-lg-4">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <i class="fas fa-chart-pie"></i>
+                  Financial Activites, Race (%)</div>
+                <div class="card-body" style='height:300px'>
+                  <canvas id="financial_activities_race"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Construction Race -->
+            <div class="col-lg-4">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <i class="fas fa-chart-pie"></i>
+                  Construction, Race (%)</div>
+                <div class="card-body" style='height:300px'>
+                  <canvas id="construction_race"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Professional and Business Services Race -->
+            <div class="col-lg-4">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <i class="fas fa-chart-pie"></i>
+                  Professional/Business Services, Race (%)</div>
+                <div class="card-body" style='height:300px'>
+                  <canvas id="professional_business_race"></canvas>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class='row'>
+
+            <!-- Financial Activites Gender-->
+            <div class="col-lg-4">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <i class="fas fa-chart-pie"></i>
+                  Financial Activites, Gender (%)</div>
+                <div class="card-body" style='height:300px'>
+                  <canvas id="financial_activities_gender"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Construction Gender -->
+            <div class="col-lg-4">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <i class="fas fa-chart-pie"></i>
+                  Construction, Gender (%)</div>
+                <div class="card-body" style='height:300px'>
+                  <canvas id="construction_gender"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Professional and Business Services Gender -->
+            <div class="col-lg-4">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <i class="fas fa-chart-pie"></i>
+                  Professional/Business Services, Gender (%)</div>
+                <div class="card-body" style='height:300px'>
+                  <canvas id="professional_business_gender"></canvas>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          These descriptions provide an in-depth analysis of the pie graphs above.
+
+         <p></p>
+
+         <div class='row'>
+
+            <!-- Financial Activities Race -->
+            <div class="col-lg-4">
+              <h5>Financial Activities, Race</h5>
+              Unfortunately, we cannot make any conclusions about economic impact on specific races, because their statistics are similar to their population demographics.
+            </div>
+
+            <!-- Construction Race -->
+            <div class="col-lg-4">
+              <h5>Construction, Race</h5>
+              This industry reveals lots about percent representation. 30% of this industry is Hispanic, which is significantly higher than the population statistic of 18.5%. Whites are also a major part of this industry, clocking in at 88.1%. Remember, these are not mutually exclusive percentages. <b>Therefore, since this is a higher-wage, lower-impacted industry, it is good to see strong minority representation, and Hispanics are not a negatively targeted group here.</b> The same conclusion is maintained for whites.
+            </div>
+
+            <!-- Professional/Business Services Race -->
+            <div class="col-lg-4">
+              <h5>Professional/Business Services, Race</h5>
+              Unfortunately, we cannot make any conclusions about economic impact on specific races, because their statistics are similar to their population demographics.
+            </div>
+
+          </div>
+
+          <p></p>
+
+          <div class='row'>
+
+            <!-- Financial Activities Gender -->
+            <div class="col-lg-4">
+              <h5>Financial Activities, Gender</h5>
+              Men and women hold similar shares in this industry, so we cannot make any conclusions about economic impacts based on gender in this industry.
+            </div>
+
+            <!-- Construction Gender -->
+            <div class="col-lg-4">
+              <h5>Construction, Gender</h5>
+              This is another industry where male and female representation drastically differs, where a whopping 89.7% of workers are men. While we understand that no groups are being positively affected by the pandemic, we know that men have been facing less of the burden – at least in this area – than women. <b>The fact that there are less women here implies that they were impacted more.</b>
+            </div>
+
+            <!-- Professional/Business Services Gender -->
+            <div class="col-lg-4">
+              <h5>Professional/Business Services, Gender</h5>
+              Similar to the previous industry, women are underrepresented at only 41.3%. While this is less severe difference from the norm, it is still worth considering. Thus, we can predict that once again, <b>less women in this industry means that they have unintentionally been affected more.</b>
+            </div>
+
+          </div>
+
+          <p></p>
+
+          One aspect that is shared among all three race-based pie graphs in this cateogry is that they have a lower percentage of blacks than the average U.S. population. The margin may not seem to be large, but it is consistent. <b>Are blacks underrepresented in the areas that were less affected by COVID-19?</b> Perhaps, but this is a point to research further with more data.
+
+          <hr>
+
+          <h3>Link to the Wage Gap</h3>
+          The <i><a href='https://www.nytimes.com/2020/06/06/business/economy/jobs-report-minorities.html' style='color: blue'><u>New York Times</u></a></i> describes that we can estimate COVID-19 economic impact using two factors: wage and percent representation, where lower wages and greater minority representation may correlate with the level of negative economic impact. With this statement, it is logical to connect our unemployment findings to the wage gap so that we can investigate the median hourly wages of all genders and races utilizing numerical statistics.
+
+          <p></p>
+
+          <div class='row'>
+
+            <!-- Wages Gender -->
+            <div class="col-lg-6">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <i class="fas fa-chart-bar"></i>
+                  Median Hourly Wages, Gender ($)</div>
+                <div class="card-body" style='height:400px'>
+                  <canvas id="wages_gender"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Wages Race -->
+            <div class="col-lg-6">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <i class="fas fa-chart-bar"></i>
+                  Median Hourly Wages, Race ($)</div>
+                <div class="card-body" style='height:400px'>
+                  <canvas id="wages_race"></canvas>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          From the bar graphs above, we see that men earn $3.16 more than women per hour, and the same holds for whites earning more than their respective minorities (where whites earn $5.20 and $5.43 more than blacks and Hispanics per hour, respectively). We've seen from multiple graphs above that higher pay of an industry has some noteworthy correlation with less unemployment. <b>This cyclical process has the potential to widen the wage gap, because the "dominant" or "preferred" race (white) or gender (male) will earn money at a faster rate. Unemployment often exacerbates the wage gap, and on top of that, existing racial and gender disparities even among those who are employed only worsens the situation.</b>
+
+          <p></p>
+
+          When scanning the two bar graphs above reporting hourly wage, we see that <b>women, blacks, and Hispanics are paid the least in comparison to the other groups.</b> At $17.84, $16.12, and $15.89, respectively, <b>they are automatically more likely to work in low-pay industries like Leisure and Hospitality and Retail Trade – the two most hurt industries</b>, which have wages of $14.55 and $18.06. This puts them at an unfair disadvantage for unemployment and job losses.
+
+          <hr>
+
+          <h2>COVID-19 Impact Summary</h2>
+
+          To summarize this study, we've identified the industries with the greatest unemployment rate increases, and by extension, the ones most impacted by COVID-19. These were Leisure and Hospitality, Retail Trade, and Education and Health Services. After finding the industries impacted the least in the same manner, we ordered the industries by average hourly wage and plotted unemployment increases against wage. There is a negative correlation, meaning that as unemployment grows, the wages with which they are associated shrink.
+
+          <p></p>
+
+          Then, we looked at the unemployment rate increases of all groups of people (race and gender) between the last quarter of 2019 and the second quarter of 2020 and found that Hispanics and women suffered the most, both at over 300% increases in unemployment. The next step was to investigate racial and gender representation in our selected industries, and we discovered that certain ones revealed valuable information about groups. Industries such as Leisure and Hospitality, Education and Health Services, Construction, and Professional and Business Services skewed towards Hispanics and/or women in different ways.
+
+          <p></p>
+          
+          We then connected the ideas of unemployment and wage gap. We tracked hourly wages of groups and linked the results to other findings or hypotheses in the study, finding that all three minority groups are put at greater risk during COVID-19 because of their lower wages, percent representation in industries, and more.
+
+          <hr>
+
+          <i>Please head to <a href='data_sources.html' style='color: blue'><u>Data Sources</u></a> to learn more.</i>
+
+        </div>
+
+      </div>
+      <!-- /.content-wrapper -->
+
+    </div>
+  </div>
+
+<!--   <footer id="contact">
+    <p> &#9993; Contact us at @gmail.com</p>
+  </footer> -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Page level plugin JavaScript-->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin.min.js"></script>
+
+    <!-- Demo scripts for this page-->
+    <script src="graphs/unemployment_years.js"></script>
+    <script src="graphs/percent_increase.js"></script>
+    <script src="graphs/unemployment_months.js"></script>
+    <script src="graphs/male_female.js"></script>
+    <script src="graphs/white_black_hispanic.js"></script>
+    <script src="graphs/industry_race.js"></script>
+    <script src="graphs/race_wage.js"></script>
+    <script src="graphs/employment_breakdown_highest.js"></script>
+    <script src="graphs/employment_breakdown_lowest.js"></script>
+    <script src="graphs/industry_unemployment_wage.js"></script>
+    <script src="graphs/unemployment_quarterly.js"></script>
+    <script src="graphs/unemployment_increases_quarterly.js"></script>
+    <script src="graphs/leisure_hospitality_race.js"></script>
+    <script src="graphs/retail_trade_race.js"></script>
+    <script src="graphs/education_health_race.js"></script>
+    <script src="graphs/leisure_hospitality_gender.js"></script>
+    <script src="graphs/retail_trade_gender.js"></script>
+    <script src="graphs/education_health_gender.js"></script>
+    <script src="graphs/financial_activities_race.js"></script>
+    <script src="graphs/construction_race.js"></script>
+    <script src="graphs/professional_business_race.js"></script>
+    <script src="graphs/financial_activities_gender.js"></script>
+    <script src="graphs/construction_gender.js"></script>
+    <script src="graphs/professional_business_gender.js"></script>
+    <script src="graphs/wages_gender.js"></script>
+    <script src="graphs/wages_race.js"></script>
+
+  </body>
+
+</html>

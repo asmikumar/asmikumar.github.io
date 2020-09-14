@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Economic Analysis COVID-19</title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Page level plugin CSS-->
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <div id="container"></div>
+
+  </head>
+
+  <body id="page-top">
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+      <a class="navbar-brand mr-1" href="index.html">Economic Impacts of COVID-19</a>
+
+      	  <a class="nav-link" href="unemployment.html" style="color: white">
+            <span>Unemployment Statistics and Visualizations</span>
+          </a>
+          <a class="nav-link" href="wage_gap.html" style="color: darkgray">
+            <span>The Wage Gap</span>
+          </a>
+          <a class="nav-link" href="combination.html" style="color: darkgray">
+            <span>Combining Two Economic Ideas</span>
+          </a>
+          <a class="nav-link" href="data_sources.html" style="color: darkgray">
+            <span>Data Sources</span>
+          </a>
+    </nav>
+
+    <div id="wrapper">
+
+      <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+          <div id='encapsule'>
+
+          <h2>Unemployment Statistics and Visualizations</h2>
+          COVID-19 has had extremely adverse effects on the U.S. economy, leading to spikes in unemployment across various industries. The ensuing economic shut down put many businesses at risk and the number of unemployed people rose by over 14 million – from 6.2 million in February to 20.5 million in May. In this brief time period, unemployment rose higher than it did during two years of the Great Recession, which speaks volumes about the present economic halt.
+
+          <p></p>
+
+          <div class='row'>
+
+            <div class='col-lg-6'>
+              <h4>What are unemployment and unemployment rate?</h4>
+              <i>Unemployment</i> occurs when a person actively searching for work is unable to find it, and it is often used to quantify the health of an economy. The most frequent measure of unemployment is the <i>unemployment rate</i>, which is the number of unemployed people divided by the number of people in the labor force. High rates of unemployment can signal of economic distress, but extremely low rates of unemployment may indicate an overworked economy.
+            </div>
+
+            <div class='col-lg-6'>
+              <h4>How is it calculated?</h4>
+              The U.S. unemployment rate is calculated by dividing the number of unemployed people by the number of people in the labor force. The standard measure of unemployment (U3) is defined as a person who does not have a full-time, part-time, or temporary job, is actively searching for a job, and is available to be hired. The “real” unemployment rate (U6) takes into account those who are employed part-time for economic reasons. However, unemployment could be very undercounted due to failure to include all relevant people in data collection.
+            </div>
+
+          </div>
+
+          <p></p>
+
+          <div class='row'>
+
+            <div class='col-lg-6'>
+              <h4>Why does it exist?</h4>
+              Unemployment levels can be a result of high interest, global recession, and/or financial crisis. It can be classified as either a frictional, structural, cyclical, or demand-deficit. Check out <a href='https://www.masterclass.com/articles/learn-about-unemployment' style='color: blue'><u>this link</u></a> to learn more about specific types of unemployment. In addition, high unemployment rates often create a ripple effect and can be felt by both workers and the national economy, further extending its impact.
+            </div>
+
+            <div class='col-lg-6'>
+              <h4>How does COVID-19 come into play?</h4>
+              During COVID-19, the U.S. economy was the most negatively impacted out of all affluent countries, resulting in tens of millions of people losing their jobs, and this statistic continues to rise and fall during these changing times. Some industries are affected differently depending on the requirements and interests of the people, and this is a main topic we address in this study.
+            </div>
+
+          </div>
+
+          <p></p>
+
+          <!-- Interactive Map -->
+          <!-- <div class='card mb-3'>
+            This will eventually be the interactive map of the US with unemployment stats; I just haven't developed it yet.
+          </div> -->
+
+          <h4>What's the goal of these visualizations?</h4>
+          We are trying to understand which industries are impacted most by COVID-19. To do that, we must look at the percent increases in unemployment from before the pandemic to after the preliminary impacts are evident. Therefore, we utilize February (the final month where the U.S. economy was stable) and April (the month where industries saw the highest unemployment rates). After identifying specific industries with the greatest – and least – percent increases in unemployment, <b>will we be able to analyze their gender and racial makeups and investigate whether COVID-19 is likely to affect certain groups more severely than others? </b>
+
+          <p></p>
+
+          <i>Note: some industries are not included in this study due to lack of sufficient unemployment rate or employee data.</i>
+
+          <hr>
+
+          <h3>Graphs</h3>
+          In the multi-line graph, we observe monthly unemployment rate trends from 2010 until now (June 2020). The purpose of this graph is to highlight the unemployment rates of all industries together and see how they compare to each other. To view select industries at a time, click on the names or legend tabs of the industries at the top of the graph to eliminate them from view, and click again to get them back. By providing this line graph that spans over more than a decade, we show that <b>no event in recent years has triggered such a dramatic increase in unemployment rate like COVID-19.</b>
+
+          <p></p>
+
+          <!-- <div class='row'> -->
+
+            <!-- Unemployment Annual Trends -->
+            <!-- <div class='col-lg-6'> -->
+              <div class="card mb-3">
+                <div class="card-header">
+                  <i class="fas fa-chart-line"></i>
+                  Unemployment Annual Trends (%)</div>
+                  <div class="card-body">
+                    <canvas id="unemployment_years"></canvas>
+                  </div>
+              </div>
+            <!-- </div> -->
+
+            <!-- <div class='col-lg-6'> -->
+
+            In the table below, the industries highlighted in red represent those with the highest unemployment rate increases, and similarly, the industries highlighted in green represent those with the lowest unemployment rate increases. Now, let's take the most critically-impacted industries and see what happened to their unemployment rates at a more granular level.
+
+            <p></p>
+
+              <div class="card mb-3">
+                <div class="card-header">
+                  <i class="fas fa-table"></i>
+                  Percent Increase</div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-bordered" id="percent_increase">
+                      <thead>
+                        <tr>
+                          <th scope="col"></th>
+                          <th scope="col" style='background-color: #c3e6cb'>Construction</th>
+                          <th scope="col" style='background-color: #f5c6cb'>Education and Health Services</th>
+                          <th scope="col" style='background-color: #c3e6cb'>Financial Activities</th>
+                          <th scope="col">Information</th>
+                          <th scope="col" style='background-color: #f5c6cb'>Leisure and Hospitality</th>
+                          <th scope="col">Manufacturing</th>
+                          <th scope="col" style='background-color: #c3e6cb'>Professional Business Services</th>
+                          <th scope="col" style='background-color: #f5c6cb'>Retail Trade</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">February 2020 %</th>
+                          <td style='background-color: #c3e6cb'>5.5</td>
+                          <td style='background-color: #f5c6cb'>2.4</td>
+                          <td style='background-color: #c3e6cb'>1.6</td>
+                          <td>2.6</td>
+                          <td style='background-color: #f5c6cb'>5.7</td>
+                          <td>3.9</td>
+                          <td style='background-color: #c3e6cb'>4.4</td>
+                          <td style='background-color: #f5c6cb'>3.5</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">April 2020 %</th>
+                          <td style='background-color: #c3e6cb'>16.6</td>
+                          <td style='background-color: #f5c6cb'>10.9</td>
+                          <td style='background-color: #c3e6cb'>5.4</td>
+                          <td>11.0</td>
+                          <td style='background-color: #f5c6cb'>39.3</td>
+                          <td>13.2</td>
+                          <td style='background-color: #c3e6cb'>9.8</td>
+                          <td style='background-color: #f5c6cb'>18.6</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">% Increase</th>
+                          <td style='background-color: #c3e6cb'>201.8</td>
+                          <td style='background-color: #f5c6cb'>354.2</td>
+                          <td style='background-color: #c3e6cb'>237.5</td>
+                          <td>323.1</td>
+                          <td style='background-color: #f5c6cb'>589.5</td>
+                          <td>238.5</td>
+                          <td style='background-color: #c3e6cb'>122.7</td>
+                          <td style='background-color: #f5c6cb'>431.4</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            <!-- </div> -->
+
+          <!-- </div> -->
+
+          Let's take a closer look at the three industries highlighted in red: <b>Leisure and Hospitality</b>, <b>Retail Trade</b>, and <b>Education and Health Services</b>. The following bar graph dispalys the clear changes from February 2020 to June 2020. For some industries, unemployment rates increased nearly sevenfold at its peak.
+
+          <p></p>
+
+          <!-- Unemployment Monthly Trends 2020 -->
+          <div class="card mb-3" style="height: 500px">
+            <div class="card-header">
+              <i class="fas fa-chart-bar"></i>
+              Unemployment Monthly Trends 2020 (%)</div>
+              <div class="card-body">
+                <canvas id="unemployment_months"></canvas>
+              </div>
+          </div>
+
+          <h4>Let's isolate the COVID-19 region.</h4>
+          We can examine the top three affected industries and see how they fare from February to June in terms of unemployment rate. In February, before the economic downfall, rates are normal, close to what they have been for the last several years. In March, we observe a slight incline, hinting that something bigger is approaching. As COVID-19 takes its first nationwide toll, we see unemployment rates in April drastically spike to about several times greater than they were the former month. Reflecting unemployment benefits, government policies, and the race to open up jobs and businesses once again in the midst of a pandemic, May and June indicate lower unemployment rates. Because COVID-19 is the the only possible major propagator for this turn of events, we can conclude that it alone inflicted this serious economic damage from which we will likely struggle to recover.
+
+          <p></p>
+
+          <h4>What insights can we glean about the American people from these results?</h4>
+          It appears that the industries that rely on travel have suffered the most. Leisure and Hospitality includes sectors such as accomodation and food services; amusement, gambling, and recreation areas; and arts and entertainment centers, which all focus on people leaving the comfort of their (safe) homes and venturing out into a world potentially saturated with the COVID-19 virus. People cut off many forms of gathering, entertainment, and vacationing in attempts to keep safe. We can also make a similar conclusion from Retail Trade, which includes places like malls, grocery stores, clothing stores, material and supply dealers, electronic stores, gas stations and convenience stores, and many more. Again, we see that these rely on people traveling, revealing that people thought their chance of contracting COVID-19 would reduce significantly if they stayed home. This is a true statement, but we may soon see this industries begin to rise if and when people give up on safety measures to try to return to former daily life. Education and Health Services has likely suffered because of cancellations: school closures, students dropping out of college, reduced pay, and more. As the pandemic spread, education became much more threatened.
+
+          <p></p>
+
+          On the other hand, industries such as Financial Activites, Construction, and Professional and Business Services faced small unemployment inflations due to the fact that they could easily be converted into remote positions. Also, the government protects the people it directly employs most fiercely, which is why we saw less job losses in these fields. The latter two industries listed earlier are strictly controlled by the government, and the first industry is somewhat restricted as well.
+
+          <hr>
+
+          <i>Please head to <a href='wage_gap.html' style='color: blue'><u>The Wage Gap</u></a> to learn more.</i>
+
+        </div>
+
+      </div>
+      <!-- /.content-wrapper -->
+
+    </div>
+  </div>
+
+<!--   <footer id="contact">
+    <p> &#9993; Contact us at @gmail.com</p>
+  </footer> -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Page level plugin JavaScript-->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin.min.js"></script>
+
+    <!-- Demo scripts for this page-->
+    <script src="graphs/unemployment_years.js"></script>
+    <script src="graphs/percent_increase.js"></script>
+    <script src="graphs/unemployment_months.js"></script>
+    <script src="graphs/male_female.js"></script>
+    <script src="graphs/white_black_hispanic.js"></script>
+    <script src="graphs/industry_race.js"></script>
+    <script src="graphs/race_wage.js"></script>
+    <script src="graphs/employment_breakdown_highest.js"></script>
+    <script src="graphs/employment_breakdown_lowest.js"></script>
+    <script src="graphs/impact_score.js"></script>
+
+  </body>
+
+</html>
